@@ -18,6 +18,10 @@ package com.example.android.miwok;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,10 +33,22 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        ArrayList<String> words = new ArrayList<String>(Arrays.asList("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"));
+        ArrayList<String> words = new ArrayList<>(Arrays.asList("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"));
 
         for (int i = 0; i < words.size(); i++) {
             Log.i("Numbers Activity", "Word at index " + i + " is " + words.get(i));
         }
+
+        LinearLayout rootView=(LinearLayout) findViewById(R.id.rootView);
+        ArrayList<TextView> NumbersTextViews=new ArrayList<>();
+
+        for (int i = 0; i < words.size(); i++) {
+            NumbersTextViews.add(new TextView(this));
+            NumbersTextViews.get(i).setText(words.get(i));
+            assert rootView != null;
+            rootView.addView(NumbersTextViews.get(i));
+            Log.i("TextViews", "TextView number " + i + " has text " + NumbersTextViews.get(i).getText());
+        }
+
     }
 }
