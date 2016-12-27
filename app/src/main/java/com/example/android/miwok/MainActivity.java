@@ -22,6 +22,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import static android.R.attr.onClick;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,12 +32,55 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        TextView numbers = (TextView) findViewById(R.id.numbers);
+        assert numbers!=null;
+        numbers.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Set the the click listener for the Colors Activity
+
+        TextView colors = (TextView) findViewById(R.id.colors);
+        assert colors!=null;
+        colors.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Set the the click listener for the Family Activity
+
+        TextView family = (TextView) findViewById(R.id.family);
+        assert family!=null;
+        family.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Set the the click listener for the Phrases Activity
+
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+        assert phrases!=null;
+        phrases.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
-    public void openNumbersList(View view) {
-    Intent intent=new Intent(this,NumbersActivity.class);
-        startActivity(intent);
-    }
-    //test
+
 }
 
