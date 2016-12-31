@@ -10,7 +10,7 @@ public class Word {
     private String mMiwokWord;
     private String mEngWord;
 
-    @SuppressWarnings("unqualified-field-access")
+    @SuppressWarnings("WeakerAccess")
     public Word(String mMiwokWord, String mEngWord) {
         if (mMiwokWord.isEmpty() || mEngWord.isEmpty()) {
             throw new InvalidParameterException("Miwok word or English word not provided. Both words must be provided!");
@@ -25,7 +25,7 @@ public class Word {
         return mMiwokWord;
     }
 
-    @SuppressWarnings("unqualified-field-access")
+    @SuppressWarnings("WeakerAccess")
     public void setmMiwokWord(String mMiwokWord) {
         if (this.mMiwokWord.isEmpty()) {
             throw new InvalidParameterException("Miwok word not provided. Word must be provided!");
@@ -40,7 +40,7 @@ public class Word {
         return mEngWord;
     }
 
-    @SuppressWarnings("unqualified-field-access")
+    @SuppressWarnings("WeakerAccess")
     public void setmEngWord(String mEngWord) {
         if (mEngWord.isEmpty()) {
             throw new InvalidParameterException("English word not provided. Word must be provided!");
