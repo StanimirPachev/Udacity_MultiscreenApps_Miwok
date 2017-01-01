@@ -18,7 +18,10 @@ package com.example.android.miwok;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -33,22 +36,33 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        ArrayList<String> words = new ArrayList<>(Arrays.asList("one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"));
+        ArrayList<Word> words = new ArrayList<>();
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
+        words.add(new Word("three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo’e"));
+        words.add(new Word("ten", "na’aacha"));
 
-        for (int i = 0; i < words.size(); i++) {
-            Log.i("Numbers Activity", "Word at index " + i + " is " + words.get(i));
-        }
 
-        LinearLayout rootView=(LinearLayout) findViewById(R.id.rootView);
-        ArrayList<TextView> NumbersTextViews=new ArrayList<>();
+//        LinearLayout rootView=(LinearLayout) findViewById(R.id.rootView);
+//        ArrayList<TextView> NumbersTextViews=new ArrayList<>();
+//
+//        for (int i = 0; i < words.size(); i++) {
+//            NumbersTextViews.add(new TextView(this));
+//            NumbersTextViews.get(i).setText(words.get(i));
+//            assert rootView != null;
+//            rootView.addView(NumbersTextViews.get(i));
+//            Log.i("TextViews", "TextView number " + i + " has text " + NumbersTextViews.get(i).getText());
+//        }
 
-        for (int i = 0; i < words.size(); i++) {
-            NumbersTextViews.add(new TextView(this));
-            NumbersTextViews.get(i).setText(words.get(i));
-            assert rootView != null;
-            rootView.addView(NumbersTextViews.get(i));
-            Log.i("TextViews", "TextView number " + i + " has text " + NumbersTextViews.get(i).getText());
-        }
+        WordAdapter wordAdapter = new WordAdapter(this, words);
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(wordAdapter);
 
     }
 }
