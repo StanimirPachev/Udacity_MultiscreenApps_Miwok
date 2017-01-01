@@ -27,14 +27,12 @@ public class Word {
 
     @SuppressWarnings("WeakerAccess")
     public void setmMiwokWord(String mMiwokWord) {
-        if (this.mMiwokWord.isEmpty()) {
+
+        this.mMiwokWord = mMiwokWord;
+        if (this.mMiwokWord.isEmpty())
             throw new InvalidParameterException("Miwok word not provided. Word must be provided!");
-        } else {
-            this.mMiwokWord = mMiwokWord;
-
-        }
-
     }
+
 
     public String getmEngWord() {
         return mEngWord;
@@ -42,12 +40,8 @@ public class Word {
 
     @SuppressWarnings("WeakerAccess")
     public void setmEngWord(String mEngWord) {
-        if (mEngWord.isEmpty()) {
-            throw new InvalidParameterException("English word not provided. Word must be provided!");
-        } else {
-            this.mEngWord = mEngWord;
-
-        }
-
+        this.mEngWord = mEngWord;
+        if (this.mEngWord.isEmpty())
+            throw new InvalidParameterException("Miwok word not provided. Word must be provided!");
     }
 }
